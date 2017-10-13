@@ -27,7 +27,7 @@
 
 #else
 
-#include <unistd.h>
+//#include <unistd.h>
 #include <stdint.h>
 
 #define SKYETEK_DEVICE_FILE int

@@ -1,0 +1,4 @@
+﻿  Main.cpp
+c:\users\werz\desktop\comp3980\assignment2\datacommass2\ass2\main.cpp(62): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+  Ass2.vcxproj -> C:\Users\Werz\Desktop\COMP3980\Assignment2\DataCommAss2\x64\Debug\Ass2.exe
+  Ass2.vcxproj -> C:\Users\Werz\Desktop\COMP3980\Assignment2\DataCommAss2\x64\Debug\Ass2.pdb (Partial PDB)
