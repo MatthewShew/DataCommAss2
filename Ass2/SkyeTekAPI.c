@@ -25,7 +25,7 @@
 #include <io.h>
 #endif
 #else
-#include <unistd.h>
+//#include <unistd.h>
 #endif
 
 /****************************************************
@@ -95,7 +95,7 @@ SkyeTek_OpenDeviceStream(
   return _fdopen(_dup(_open_osfhandle((int)lpDevice->readFD,0)), "rb");
 #endif
 #else
-  return fdopen(dup(lpDevice->readFD), "rb"); 
+  return _fdopen(dup(lpDevice->readFD), "rb"); 
 #endif
 }
 
@@ -283,7 +283,7 @@ SkyeTek_GetStringFromData(
    
 	for(i = 0, ptr = str; i < data->size; i++, ptr+=2)
     {
-      _stprintf(ptr,_T("%02X"),data->data[i]);
+      sprintf_s(ptr,_T("%02X"),data->data[i]);
     }
 
     return str;

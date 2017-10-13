@@ -13,12 +13,18 @@ HEADER
 
 
 char Name[] = "C3980 Asn 2";
+HWND hwnd;
+
+FILE* fp = NULL;
+
+void debug(TCHAR* msg);
+void output(TCHAR* sz, ...);
+SKYETEK_STATUS ReadTagData(LPSKYETEK_READER lpReader, LPSKYETEK_TAG lpTag);
 
 HANDLE readThread;
 BOOL reading = FALSE;
-
 char inputBuffer[512];
-HWND hwnd;
+
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 DWORD WINAPI ReadRFID(LPVOID);
@@ -30,6 +36,21 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInstance, LPSTR lspszCmdParam
 {
 	MSG Msg;
 	WNDCLASSEX Wcl;
+
+	//COPY PAASASSTA
+	LPSKYETEK_DEVICE *devices = NULL;
+	LPSKYETEK_READER *readers = NULL;
+	LPSKYETEK_TAG *lpTags = NULL;
+	LPSKYETEK_DATA lpData = NULL;
+	SKYETEK_STATUS st;
+	unsigned short count;
+	unsigned int numDevices;
+	unsigned int numReaders;
+	int loops = 100;
+	int totalReads = 0;
+	int failedReads = 0;
+	int failedLoops = 0;
+	//
 
 	Wcl.cbSize = sizeof(WNDCLASSEX);
 	Wcl.style = CS_HREDRAW | CS_VREDRAW;
@@ -52,6 +73,36 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hprevInstance, LPSTR lspszCmdParam
 	hwnd = CreateWindow(Name, Name, WS_OVERLAPPEDWINDOW, 10, 10, 800, 600, NULL, NULL, hInst, NULL);
 	ShowWindow(hwnd, nCmdShow);
 	UpdateWindow(hwnd);
+
+
+
+
+
+	// Discover reader
+	output(_T("Discovering reader...\n"));
+	numDevices = SkyeTek_DiscoverDevices(&devices);
+	if (numDevices == 0)
+	{
+		output(_T("*** ERROR: No devices found.\n"));
+		fclose(fp);
+		return 0;
+	}
+	output(_T("Discovered %d devices\n"), numDevices);
+	numReaders = SkyeTek_DiscoverReaders(devices, numDevices, &readers);
+	if (numReaders == 0)
+	{
+		SkyeTek_FreeDevices(devices, numDevices);
+		output(_T("*** ERROR: No readers found.\n"));
+		fclose(fp);
+		return 0;
+	}
+	output(_T("Found reader: %s\n"), readers[0]->friendly);
+	output(_T("On device: %s [%s]\n"), readers[0]->lpDevice->type, readers[0]->lpDevice->address);
+	//
+
+
+
+
 
 	while (GetMessage(&Msg, NULL, 0, 0))
 	{

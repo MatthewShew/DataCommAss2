@@ -1,4 +1,20 @@
-﻿  Main.cpp
-c:\users\werz\desktop\comp3980\assignment2\datacommass2\ass2\main.cpp(62): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-  Ass2.vcxproj -> C:\Users\Werz\Desktop\COMP3980\Assignment2\DataCommAss2\x64\Debug\Ass2.exe
-  Ass2.vcxproj -> C:\Users\Werz\Desktop\COMP3980\Assignment2\DataCommAss2\x64\Debug\Ass2.pdb (Partial PDB)
+﻿Main.obj : warning LNK4217: locally defined symbol SkyeTek_DiscoverDevices imported in function WinMain
+Main.obj : warning LNK4217: locally defined symbol SkyeTek_FreeDevices imported in function WinMain
+Main.obj : warning LNK4217: locally defined symbol SkyeTek_DiscoverReaders imported in function WinMain
+Main.obj : error LNK2019: unresolved external symbol "void __cdecl output(char *,...)" (?output@@YAXPEADZZ) referenced in function WinMain
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol DiscoverDevicesImpl referenced in function SkyeTek_DiscoverDevices
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol FreeDevicesImpl referenced in function SkyeTek_FreeDevices
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol CreateDeviceImpl referenced in function SkyeTek_CreateDevice
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol FreeDeviceImpl referenced in function SkyeTek_FreeDevice
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol SerialDevice_SetOptions referenced in function SkyeTek_SetSerialOptions
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol SerialDevice_GetOptions referenced in function SkyeTek_GetSerialOptions
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol DiscoverReadersImpl referenced in function SkyeTek_DiscoverReaders
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol FreeReadersImpl referenced in function SkyeTek_FreeReaders
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol CreateReaderImpl referenced in function SkyeTek_CreateReader
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol FreeReaderImpl referenced in function SkyeTek_FreeReader
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol CreateTagImpl referenced in function SkyeTek_CreateTag
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol FreeTagImpl referenced in function SkyeTek_FreeTag
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol DuplicateTagImpl referenced in function SkyeTek_DuplicateTag
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol st_memcpy referenced in function SkyeTek_ParsePaymentTrack1
+SkyeTekAPI.obj : error LNK2019: unresolved external symbol st_memset referenced in function SkyeTek_ParsePaymentTrack1
+C:\Users\Werz\Desktop\COMP3980\Assignment2\DataCommAss2\x64\Debug\Ass2.exe : fatal error LNK1120: 16 unresolved externals

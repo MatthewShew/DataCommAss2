@@ -21,6 +21,15 @@
     <ClInclude Include="Header.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="SkyeTekAPI.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyeTekProtocol.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="menuResource.rc">
@@ -29,6 +38,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyeTekAPI.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
